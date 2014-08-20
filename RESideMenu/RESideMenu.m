@@ -38,6 +38,7 @@
 @property (strong, readwrite, nonatomic) UIView *menuViewContainer;
 @property (strong, readwrite, nonatomic) UIView *contentViewContainer;
 @property (assign, readwrite, nonatomic) BOOL didNotifyDelegate;
+@property (strong, nonatomic, readwrite) UIPanGestureRecognizer *panGestureRecognizer;
 
 @end
 
@@ -224,6 +225,7 @@
         UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(__panGestureRecognized:)];
         panGestureRecognizer.delegate = self;
         [self.view addGestureRecognizer:panGestureRecognizer];
+        self.panGestureRecognizer = panGestureRecognizer;
     }
     
     [self __updateContentViewShadow];
